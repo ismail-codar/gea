@@ -320,7 +320,7 @@ export default class DataGrid extends Component {
                 <div data-part="toolbar-start">{this.renderTemplate(props.toolbarStart, context)}</div>
               )}
 
-              {this.showGlobalFilter && (
+              {showGlobalFilter && (
                 <div class="min-w-0 flex-1 md:max-w-sm">
                   <input
                     data-part="global-filter"
@@ -333,7 +333,7 @@ export default class DataGrid extends Component {
                 </div>
               )}
 
-              {this.showSelectedCount && selectable && (
+              {showSelectedCount && selectable && (
                 <div data-part="selected-count" class="text-sm text-muted-foreground">
                   {selectedCount} selected
                 </div>
