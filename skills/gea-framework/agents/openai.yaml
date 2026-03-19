@@ -1,0 +1,7 @@
+interface:
+  display_name: "Gea Framework"
+  short_description: "Build and refactor apps with the Gea framework"
+  default_prompt: "Use $gea-framework to implement or update a Gea store, component, router flow, or reactive UI pattern in this repo."
+
+policy:
+  allow_implicit_invocation: true

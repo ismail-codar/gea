@@ -132,7 +132,7 @@ Full documentation is available in the [docs](docs/) directory, covering:
 
 ## AI-Assisted Development
 
-This repository includes [agent skills](skills/gea-framework) that teach AI coding assistants how to work with Gea. If you use Cursor, Codex, or a similar AI-enabled editor, it will automatically pick up the skill files and understand Gea's stores, components, JSX conventions, and reactivity model — so you can scaffold and iterate on Gea apps with full AI assistance out of the box.
+This repository includes repo-local [agent skills](skills/gea-framework) plus an [AGENTS.md](AGENTS.md) guide for always-on repository instructions. If you use Cursor, Codex, or a similar AI-enabled editor, those files provide Gea-specific guidance for stores, components, JSX conventions, reactivity, UI components, and the benchmark-report workflow.
 
 ## Contributing
 

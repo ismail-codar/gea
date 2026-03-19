@@ -1,0 +1,7 @@
+interface:
+  display_name: "Gea UI Components"
+  short_description: "Work with @geajs/ui components and theming"
+  default_prompt: "Use $gea-ui-components to add or update @geajs/ui components, forms, dialogs, tabs, toast, or theming in this repo."
+
+policy:
+  allow_implicit_invocation: true

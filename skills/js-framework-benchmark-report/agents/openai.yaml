@@ -1,0 +1,7 @@
+interface:
+  display_name: "JS Framework Benchmark Report"
+  short_description: "Rebuild the curated benchmark report for this repo"
+  default_prompt: "Use $js-framework-benchmark-report to refresh or rebuild the curated js-framework-benchmark HTML report for this repo."
+
+policy:
+  allow_implicit_invocation: true
