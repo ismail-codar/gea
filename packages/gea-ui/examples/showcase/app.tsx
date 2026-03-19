@@ -30,6 +30,7 @@ import {
   Clipboard,
   ToggleGroup,
   Pagination,
+  DataGrid,
   RatingGroup,
   Select,
   Switch,
@@ -45,6 +46,18 @@ import {
 } from '@geajs/ui'
 
 export default class App extends Component {
+  teamRows = [
+    { id: 'u1', name: 'Ada Lovelace', role: 'Engineer', status: 'Active' },
+    { id: 'u2', name: 'Grace Hopper', role: 'Architect', status: 'Review' },
+    { id: 'u3', name: 'Linus Torvalds', role: 'Engineer', status: 'Blocked' },
+  ]
+
+  teamColumns = [
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    { accessorKey: 'status', header: 'Status' },
+  ]
+
   template() {
     return (
       <div class="showcase">
@@ -216,6 +229,26 @@ export default class App extends Component {
                 <Progress label="Upload" value={33} />
                 <Progress label="Processing" value={66} />
                 <Progress label="Complete" value={100} />
+              </div>
+            </div>
+
+            <div class="component-card">
+              <div class="component-card-header">
+                <h3>DataGrid</h3>
+                <p>Client-side sorting, filtering, pagination, selection, and expansion.</p>
+              </div>
+              <div class="component-card-body">
+                <DataGrid
+                  data={this.teamRows}
+                  columns={this.teamColumns}
+                  selectable
+                  defaultPageSize={3}
+                  expandedRow={({ row }) => (
+                    <div style="font-size: 0.8rem;">
+                      {row.original.name} is currently {row.original.status.toLowerCase()}.
+                    </div>
+                  )}
+                />
               </div>
             </div>
           </div>
@@ -601,7 +634,7 @@ export default class App extends Component {
 
         <Separator class="my-6" />
 
-        <p class="footer-note">gea-ui — {35} components. Built with Gea, Zag.js, and Tailwind CSS.</p>
+        <p class="footer-note">gea-ui — {36} components. Built with Gea, Zag.js, and Tailwind CSS.</p>
 
         <Toaster />
       </div>

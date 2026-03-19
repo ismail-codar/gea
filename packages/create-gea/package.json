@@ -3,9 +3,7 @@
   "version": "1.0.1",
   "description": "Scaffold a new Gea app with Vite in seconds",
   "type": "module",
-  "bin": {
-    "create-gea": "bin/create-gea.js"
-  },
+  "bin": "bin/create-gea.js",
   "scripts": {
     "test": "node --test ./test/*.test.js"
   },

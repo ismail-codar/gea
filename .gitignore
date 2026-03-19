@@ -7,3 +7,5 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 docs/public/gea-ui-showcase
 website/docs
+.npm-cache
+yarn.lock

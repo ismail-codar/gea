@@ -30,6 +30,7 @@ import {
   Clipboard,
   ToggleGroup,
   Pagination,
+  DataGrid,
   RatingGroup,
   Select,
   Switch,
@@ -66,6 +67,46 @@ export default class App extends Component {
   tabsVal = 'account'
   pageVal = 1
   dialogAction = 'No action yet'
+  gridRows = [
+    {
+      id: 'u1',
+      name: 'Ada Lovelace',
+      role: 'Engineer',
+      team: 'Compiler',
+      status: 'Active',
+      notes: 'Owns build tooling.',
+    },
+    {
+      id: 'u2',
+      name: 'Grace Hopper',
+      role: 'Architect',
+      team: 'Platform',
+      status: 'Review',
+      notes: 'Reviewing data contracts.',
+    },
+    {
+      id: 'u3',
+      name: 'Linus Torvalds',
+      role: 'Engineer',
+      team: 'Kernel',
+      status: 'Blocked',
+      notes: 'Waiting on API changes.',
+    },
+    {
+      id: 'u4',
+      name: 'Ken Thompson',
+      role: 'Manager',
+      team: 'Runtime',
+      status: 'Active',
+      notes: 'Planning next sprint.',
+    },
+  ]
+  gridColumns = [
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    { accessorKey: 'team', header: 'Team' },
+    { accessorKey: 'status', header: 'Status' },
+  ]
 
   template() {
     return (
@@ -87,6 +128,7 @@ export default class App extends Component {
           <h4>Data Display</h4>
           <a href="#avatar">Avatar</a>
           <a href="#progress">Progress</a>
+          <a href="#data-grid">DataGrid</a>
 
           <h4>Data Entry</h4>
           <a href="#input">Input</a>
@@ -603,6 +645,95 @@ export default class App extends Component {
                   </td>
                   <td class="prop-default">—</td>
                   <td>Label text</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-page" id="data-grid">
+            <h2>DataGrid</h2>
+            <p class="doc-desc">
+              High-level data table built on TanStack Table core. Includes sorting, filtering, pagination, selection,
+              column visibility, density modes, and expandable detail rows.
+            </p>
+            <div class="demo-block">
+              <div class="demo-preview" style="width: 100%; display: block;">
+                <DataGrid
+                  data={this.gridRows}
+                  columns={this.gridColumns}
+                  selectable
+                  reorderableColumns
+                  defaultPageSize={3}
+                  expandedRow={({ row }) => <div style="font-size: 0.875rem;">{row.original.notes}</div>}
+                />
+              </div>
+              <div class="demo-code">{`<DataGrid
+  data={rows}
+  columns={columns}
+  selectable
+  reorderableColumns
+  defaultPageSize={3}
+  expandedRow={({ row }) => <div>{row.original.notes}</div>}
+/>`}</div>
+            </div>
+            <h3>API</h3>
+            <table class="prop-table">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="prop-name">data</td>
+                  <td class="prop-type">
+                    <code>object[]</code>
+                  </td>
+                  <td class="prop-default">[]</td>
+                  <td>Row data array</td>
+                </tr>
+                <tr>
+                  <td class="prop-name">columns</td>
+                  <td class="prop-type">
+                    <code>ColumnDef[]</code>
+                  </td>
+                  <td class="prop-default">[]</td>
+                  <td>TanStack-style column definitions</td>
+                </tr>
+                <tr>
+                  <td class="prop-name">selectable</td>
+                  <td class="prop-type">
+                    <code>boolean</code>
+                  </td>
+                  <td class="prop-default">false</td>
+                  <td>Enable row selection checkboxes</td>
+                </tr>
+                <tr>
+                  <td class="prop-name">expandedRow</td>
+                  <td class="prop-type">
+                    <code>{'({ row, table }) => any'}</code>
+                  </td>
+                  <td class="prop-default">—</td>
+                  <td>Render detail content below a row</td>
+                </tr>
+                <tr>
+                  <td class="prop-name">state / onStateChange</td>
+                  <td class="prop-type">
+                    <code>Partial&lt;TableState&gt;</code>
+                  </td>
+                  <td class="prop-default">—</td>
+                  <td>Controlled table state passthrough</td>
+                </tr>
+                <tr>
+                  <td class="prop-name">defaultPageSize</td>
+                  <td class="prop-type">
+                    <code>number</code>
+                  </td>
+                  <td class="prop-default">10</td>
+                  <td>Initial page size</td>
                 </tr>
               </tbody>
             </table>
@@ -2778,7 +2909,7 @@ ToastStore.loading({ title: 'Loading...', description: 'Wait.' })`}</div>
           <Separator class="my-8" />
 
           <p style="text-align: center; font-size: 0.8rem; color: hsl(var(--muted-foreground)); padding: 2rem 0;">
-            gea-ui v0.1.0 — 35 components, fully accessible, keyboard navigable, and screen reader friendly.
+            gea-ui v0.1.0 — 36 components, fully accessible, keyboard navigable, and screen reader friendly.
           </p>
         </main>
         <Toaster />

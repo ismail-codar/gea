@@ -559,6 +559,47 @@ import { Pagination } from '@geajs/ui'
 | `page` | `number` | — | Controlled active page |
 | `onPageChange` | `(details: { page: number }) => void` | — | Called when page changes |
 
+## DataGrid
+
+High-level data table built on TanStack Table core with client-side sorting, filtering, pagination, row selection, column visibility, density controls, and expandable detail rows.
+
+```tsx
+import { DataGrid } from '@geajs/ui'
+
+<DataGrid
+  data={rows}
+  columns={[
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'role', header: 'Role' },
+    { accessorKey: 'status', header: 'Status' },
+  ]}
+  selectable
+  reorderableColumns
+  defaultPageSize={10}
+  expandedRow={({ row }) => <div>{row.original.notes}</div>}
+/>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` | `object[]` | `[]` | Rows to display |
+| `columns` | `ColumnDef[]` | `[]` | TanStack Table column definitions |
+| `state` | `Partial<TableState>` | — | Controlled table state |
+| `initialState` | `Partial<TableState>` | — | Initial uncontrolled table state |
+| `onStateChange` | `(updater) => void` | — | Controlled state callback |
+| `selectable` | `boolean` | `false` | Enable row selection column |
+| `expandable` | `boolean` | `false` | Enable expansion controls |
+| `expandedRow` | `({ row, table }) => any` | — | Detail row renderer |
+| `filterable` | `boolean` | `true` | Enable global and per-column filtering |
+| `sortable` | `boolean` | `true` | Enable header sorting |
+| `paginated` | `boolean` | `true` | Enable footer pagination |
+| `defaultPageSize` | `number` | `10` | Initial page size |
+| `density` | `'compact' \| 'default' \| 'comfortable'` | `'default'` | Row density preset |
+| `loading` | `boolean` | `false` | Render loading skeleton rows |
+| `emptyMessage` | `string` | `'No rows match the current view.'` | Empty state copy |
+
 ## File Upload
 
 A file picker with drag-and-drop support and file type filtering.

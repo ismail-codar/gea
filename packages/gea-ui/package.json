@@ -38,10 +38,12 @@
   ],
   "scripts": {
     "build": "tsdown --config-loader unrun",
-    "dev:dashboard": "vite dev examples/dashboard",
-    "dev:docs": "vite dev examples/docs",
-    "dev:forms": "vite dev examples/forms",
-    "dev:showcase": "vite dev examples/showcase",
+    "test": "tsx --test tests/**/*.test.ts",
+    "dev:dashboard": "vite dev examples/dashboard --configLoader native",
+    "dev:datagrid": "vite dev examples/datagrid --configLoader native",
+    "dev:docs": "vite dev examples/docs --configLoader native",
+    "dev:forms": "vite dev examples/forms --configLoader native",
+    "dev:showcase": "vite dev examples/showcase --configLoader native",
     "dev:interactive": "vite dev examples/interactive",
     "build:docs": "vite build --config examples/docs/vite.config.prod.ts"
   },
@@ -57,6 +59,7 @@
     "@geajs/core": "^1.0.0"
   },
   "dependencies": {
+    "@tanstack/table-core": "^8.21.3",
     "@zag-js/accordion": "^1.37.0",
     "@zag-js/avatar": "^1.37.0",
     "@zag-js/checkbox": "^1.37.0",
@@ -94,6 +97,7 @@
     "tailwindcss": "^3.4.19",
     "tsdown": "^0.21.2",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
   }
 }
